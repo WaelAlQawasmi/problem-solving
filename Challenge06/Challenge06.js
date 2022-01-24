@@ -11,6 +11,15 @@
 arr=[10,-10,0,200];
 var maxElemant=findMax(arr);
 alert(maxElemant);
+
+arr=[10,-10,0,"ali"];
+var sumElemant=sumNums(arr);
+alert(sumElemant);
+
+arr=[10,-10,0,200];
+var reverseArray=reverseArray(arr);
+alert(reverseArray);
+
 const findMax = (arr)=>{
     let max=arr[0];
     for (let index = 0; index < arr.length; index++) {
@@ -59,7 +68,15 @@ else
 // 
 // ------------------------
 const reverseArray = (arr)=>{
-    // write your code here
+    var indexInvers=0;
+    var value;
+    for (let index = arr.length-1; index == arr.length/2; index--) {
+        value=arr[index];
+  arr[index]=arr[indexInvers];
+  arr[indexInvers]=value;
+  ++indexInvers;
+        
+    }
 }
 
 module.exports = {findMax , sumNums, reverseArray};
