@@ -275,6 +275,19 @@ let data = {
 //  2- You need to round the average to the nearest lower number 
 
 const classesAvg = (data) => {
+    for (let index1 = 0; index1 < data.grades.length; index1++) {
+        
+
+        for (let index2 = 0; index2 < data.grades[index1].classes.length; index2++) {
+           for (let index3 = 0; index3 <data.grades[index1].classes[index2].classScores.length; index3++) {
+               var score =data.grades[index1].classes[index2].classScores[index3]+score;
+               
+           }
+           data.grades[index1].classes[index2].avg=Math.round(score/data.grades[index1].classes[index2].classScores.length);
+            
+        }
+        
+    }
     // write your code here
 };
 
