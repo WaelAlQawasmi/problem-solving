@@ -59,14 +59,23 @@ const customerAndAge = (obj) => {
 
 const getEntries = (obj) => {
     let arr=[];
-    let ingredients=[];
+    let ingredients;
     for (const key in obj) {
-        if(key=="ingredients")
-       arr.push(`Name :${key} , Age :${abj[key]}`);
+      if(key=="ingredients"){
+          for (const ele of abj[key]) {
+            ingredients=ingredients+','+ele;
+              
+          }
+        arr.push(`${key}:${ingredients}`);
+      }
+      else
+      {
+        arr.push(`${key}:${abj[key]}`);
+      } 
     }
     return arr;
   };
-};
+
 
 // -------------------------------------------------------------------------------------------------------
 // Challenge 03
@@ -106,6 +115,13 @@ const courses = [
 const getInfo = (arr) => {
   let coursesName = [];
   let studentsName = [];
+  for (let index = 0; index < courses.length; index++) {
+    coursesName.push(courses[index].course);
+    for (const iterator of courses[index].Students) {
+        studentsName.push(iterator);
+    }
+      
+  }
   // write your code here
 
   return { coursesName, studentsName };
