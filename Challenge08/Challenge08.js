@@ -130,7 +130,8 @@ const getInfo = (arr) => {
 //  ------------------------------------------------------------------------------------------------------
 // Challenge 04
 
-// The Head manager wants to get a more organized info about some students, he wants you to find the students from the courses dataset
+// The Head manager wants to get a more organized info about some students, he wants you to find the students 
+//from the courses dataset
 // and return their info following the below syntax
 //
 // Input: ['Kalé', 'Alisha','Alphonso', 'Briana']
