@@ -19,10 +19,10 @@
 // ------------------------
 
 const objLat = (obj) => {
-    this.firstName= this.firstName.charAt(0).toUpperCase()+this.firstName.substring(1);
-    this.lastName= this.lastName.charAt(0).toUpperCase()+this.lastName.substring(1);
-   return `my name is ${this.firstName}  ${this.firstName} I am ${this.age} YO ,  and I love ${this.hobby}  `;
-};
+    obj.firstName= obj.firstName.charAt(0).toUpperCase()+obj.firstName.substring(1);
+    obj.lastName= obj.lastName.charAt(0).toUpperCase()+obj.lastName.substring(1);
+   return `my name is ${obj.firstName} ${obj.lastName} I am ${obj.age} YO, and I love ${obj.hobby}.`;
+}
 
 // 2) ---------------------
 //
@@ -60,10 +60,10 @@ const objLat = (obj) => {
 //         tech: "Java"
 //     }
 // ]
-//
+
 //   ===>
 
-//
+
 // [
 //     {
 //         fullName: "Jason James",
@@ -86,29 +86,30 @@ const objLat = (obj) => {
 // ------------------------
 const cvFormatter = (arr) => {
     let newArr=[];
-    let fullName;
+    let fullNames;
   for (let index = 0; index < arr.length; index++) {
-      if (arr[index].yearsOfExperience<1){ 
+      if (arr[index].yearsOfExperience>1){ 
           if(arr[index].LastName==null){
-            fullName=arr[index].firstName
+            fullNames=arr[index].firstName;
           }
           else if(arr[index].firstName==null){
-            fullName= arr[index].LastName;
+            fullNames= arr[index].LastName;
           }
           else {
-            fullName=arr[index].firstName + " " + arr[index].LastName;  
+            fullNames=arr[index].firstName+arr[index].LastName;  
           }
           let cv={
-              fullName:fullName,
+              fullName:fullNames,
           tech: arr[index].tech
 
           }
           newArr.push(cv);
 
       
-  }
-  return newArr ;
-};
+  }}
+
+  return newArr;
+}
 
 // 3) ---------------------
 //
@@ -151,7 +152,7 @@ const applicationsStatics = (arr) => {
        
    }
    return result;
-};
+}
 
 // 4) ---------------------
 //
@@ -268,27 +269,33 @@ let data = {
             ]
         },
     ],
-};
+}
 
 //  Note that:
 //  1- This is not the exact data you will be getting every time and the solution should be dynamic
 //  2- You need to round the average to the nearest lower number 
 
 const classesAvg = (data) => {
+    var score=0;
     for (let index1 = 0; index1 < data.grades.length; index1++) {
         
 
         for (let index2 = 0; index2 < data.grades[index1].classes.length; index2++) {
+             score=0;
            for (let index3 = 0; index3 <data.grades[index1].classes[index2].classScores.length; index3++) {
-               var score =data.grades[index1].classes[index2].classScores[index3]+score;
+                score =data.grades[index1].classes[index2].classScores[index3]+score;
                
-           }
-           data.grades[index1].classes[index2].avg=Math.round(score/data.grades[index1].classes[index2].classScores.length);
             
+         
+        }
+      let num=  data.grades[index1].classes[index2].classScores.length;
+        data.grades[index1].classes[index2].avg=parseInt(score/14);
         }
         
     }
     // write your code here
-};
+    return data;
+}
 
-module.exports = { objLat, cvFormatter, applicationsStatics, classesAvg };
+
+module.exports = { objLat, cvFormatter, applicationsStatics, classesAvg }
