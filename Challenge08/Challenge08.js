@@ -26,10 +26,10 @@
 
 // -------------------------------------------------------------------------------------------------------
 
-const customerAndAge = (obj) => {
+const customerAndAge = (op) => {
     let arr=[];
-  for (const key in obj) {
-     arr.push(`Customer Name :${key} , Age :${abj[key]}`);
+  for (const key in op) {
+     arr.push(`Customer Name :${key} , Age :${op[key]}`);
   }
   return arr;
 };
@@ -57,24 +57,33 @@ const customerAndAge = (obj) => {
 
 // -------------------------------------------------------------------------------------------------------
 
-const getEntries = (obj) => {
-    let arr=[];
-    let ingredients;
-    for (const key in obj) {
-      if(key=="ingredients"){
-          for (const ele of abj[key]) {
-            ingredients=ingredients+','+ele;
-              
-          }
-        arr.push(`${key}:${ingredients}`);
-      }
-      else
-      {
-        arr.push(`${key}:${abj[key]}`);
-      } 
+const getEntries = (op) => {
+  let arr=[];
+  let ingredients;
+  let c=0;
+  for (const key in op) {
+    if(key=="ingredients"){
+        for (const ele of op[key]) {
+          if(c==0){
+       ingredients=ele;
     }
-    return arr;
-  };
+          else{
+ingredients=ingredients+','+ele;
+          } 
+
+c++;
+          
+            
+        }
+      arr.push(`${key}: ${ingredients}`);
+    }
+    else
+    {
+      arr.push(`${key}: ${op[key]}`);
+    } 
+  }
+  return arr;
+};
 
 
 // -------------------------------------------------------------------------------------------------------
@@ -115,9 +124,9 @@ const courses = [
 const getInfo = (arr) => {
   let coursesName = [];
   let studentsName = [];
-  for (let index = 0; index < courses.length; index++) {
-    coursesName.push(courses[index].course);
-    for (const iterator of courses[index].Students) {
+  for (let index = 0; index < arr.length; index++) {
+    coursesName.push(arr[index].course);
+    for (const iterator of arr[index].Students) {
         studentsName.push(iterator);
     }
       
@@ -144,11 +153,29 @@ const getInfo = (arr) => {
 // ]
 
 //  ------------------------------------------------------------------------------------------------------
-
 const getStudents = (arr) => {
-  // write your code here
+  let stu = [];
+ 
+  arr.forEach(element => {
+    courses.forEach(element2 => {
+     
+      element2.Students.forEach(element4 => {
+        
+        if (element4==element) {
+           let stuOpj={};
+          stuOpj["Student"]=element4;
+          stuOpj["course"]=element2.course;
+            stu.push(stuOpj);
+         }
+      });
+      
+   
+    });
+    
+  });
+       
+    return stu;}
 
-};
 
 module.exports = {
   customerAndAge,
