@@ -9,3 +9,4 @@ ALL problems
 05          |Students markes problem/ php| **[array-insert-shift](https://github.com/WaelAlQawasmi/problem-solving/tree/main/studantMarks)**
 06         |BinarySearch/ php| **[BinarySearch-PHP](https://github.com/WaelAlQawasmi/problem-solving/tree/main/BinarySearch-PHP)**
 07         |MostRepeatDigit/ JAVA| **[MostRepeatDigit](https://github.com/WaelAlQawasmi/problem-solving/tree/main/MostRepeatDigit)**
+08        |spiralOrder/ PHP| **[spiralOrder](https://github.com/WaelAlQawasmi/problem-solving/tree/main/spiralOrder)**
