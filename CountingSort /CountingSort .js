@@ -1,6 +1,6 @@
 /**
  * To sort a long array with values between 0 and 10 efficiently,
- * solution : utilize the Counting Sort algorithm
+ *  solution : utilize the Counting Sort algorithm
  *  example :
  *  input : [10,1,1,5,10, 2,9 ,7 ,8, 10]
  *  output : [1, 1, 2, 5, 7, 8, 9, 10, 10, 10]
