@@ -9,7 +9,7 @@
  */
 class MinesweeperGame
 {
-    private $mimesesPoisons = [];
+    private $minesPoisons = [];
     private array $matrix = [];
     private int $matrixSize = 3;
     public function __construct($matrixSize=3)
@@ -28,14 +28,14 @@ class MinesweeperGame
                 $i--;
                 continue;
             }
-            $this->mimesesPoisons[] = [$minesRow, $minesCol];
+            $this->minesPoisons[] = [$minesRow, $minesCol];
             $this->matrix[$minesRow][$minesCol] = 'M';
         }
     }
 
     private function calculateOtherPoisons()
     {
-        $callNeighbors = [
+        $cellNeighbors = [
             [1, 0],  // Down
             [0, 1],  // Right
             [0, -1], // Left
@@ -45,14 +45,14 @@ class MinesweeperGame
             [-1, -1], // Up-Left
             [-1, 1]  // Up-Right
         ];
-        foreach ($this->mimesesPoisons as $mimes) {
-            $minesRow = $mimes[0];
-            $minesCol = $mimes[1];
-            foreach ($callNeighbors as $neighbor) {
+        foreach ($this->minesPoisons as $mine) {
+            $minesRow = $mine[0];
+            $minesCol = $mine[1];
+            foreach ($cellNeighbors as $neighbor) {
                 $newRow = $minesRow + $neighbor[0];
                 $newCol = $minesCol + $neighbor[1];
                 if ($this->isValidPosition($newRow, $newCol))
-                    $this->calculateCall($newRow, $newCol);
+                    $this->calculateCell($newRow, $newCol);
             }
         }
     }
@@ -62,7 +62,7 @@ class MinesweeperGame
         return $row >= 0 && $row < $this->matrixSize && $col >= 0 && $col < $this->matrixSize;
     }
 
-    private function calculateCall($row, $col)
+    private function calculateCell($row, $col)
     {
         if (is_numeric($this->matrix[$row][$col])) {
             $this->matrix[$row][$col] += 1;
