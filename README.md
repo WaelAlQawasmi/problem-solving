@@ -11,3 +11,4 @@ ALL problems
 07         |MostRepeatDigit/ JAVA| **[MostRepeatDigit](https://github.com/WaelAlQawasmi/problem-solving/tree/main/MostRepeatDigit)**
 08        |spiralOrder/ PHP| **[spiralOrder](https://github.com/WaelAlQawasmi/problem-solving/tree/main/spiralOrder)**
 09      |CountingSort/ PHP| **[CountingSort](https://github.com/WaelAlQawasmi/problem-solving/tree/main/CountingSort)**
+10      |MinesweeperGame / PHP| **[Minesweeper](https://github.com/WaelAlQawasmi/problem-solving/tree/main/Minesweeper)**
